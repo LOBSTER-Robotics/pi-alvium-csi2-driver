@@ -2,7 +2,7 @@
 #define __AVT_CSI2_H__
 
 #include "avt-csi2-regs.h"
-#include <uapi/linux/libcsi_ioctl.h>
+#include "libcsi_ioctl.h"
 
 #define USEMUTEX
 
@@ -12,8 +12,8 @@
 #define STR(x) STR_HELPER(x)
 
 /* Driver release version */
-#define DRV_VER_MAJOR           1
-#define DRV_VER_MINOR           0
+#define DRV_VER_MAJOR           5
+#define DRV_VER_MINOR           1
 #define DRV_VER_PATCH           0
 #define DRV_VER_BUILD           0
 /* Major:Minor:Patch:Build */
@@ -619,7 +619,7 @@ struct avt3_dev
 	struct regmap *regmap8;
 	struct regmap *regmap16;
 	struct regmap *regmap32;
-	struct regmap *regmap64;
+//	struct regmap *regmap64;
 	
 	struct media_pad pad;
 	union device_firmware_version_reg cam_firmware_version;
@@ -767,5 +767,11 @@ struct bcrm_to_v4l2 {
 
 #define CCI_REG_LAYOUT_MINVER	0
 #define CCI_REG_LAYOUT_MAJVER	1
+
+
+# define DATA_IDENTIFIER_INQ_1 	0x0002000000000000ull
+# define DATA_IDENTIFIER_INQ_2	0x0
+# define DATA_IDENTIFIER_INQ_3	0x0
+# define DATA_IDENTIFIER_INQ_4	0x0
 
 #endif

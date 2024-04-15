@@ -6,12 +6,13 @@ ccflags-y := -Werror
 
 
 SRC := $(shell pwd)
+KERNEL_SRC := "/lib/modules/$(shell uname -r)/build"
 
 #CFLAGS += -DISP8000NANO_V1802
 all:
 	$(MAKE) -C $(KERNEL_SRC) M=$(SRC)
 
-modules_install:
+install:
 	$(MAKE) -C $(KERNEL_SRC) M=$(SRC) modules_install
 
 clean:
